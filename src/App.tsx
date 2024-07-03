@@ -1,10 +1,12 @@
 "use client";
 import { useState } from "react";
+import image1 from './giphy1color.gif'
+import image2 from './giphy2color.gif'
 
 export default function Page() {
   const [noCount, setNoCount] = useState(0);
   const [yesPressed, setYesPressed] = useState(false);
-  const yesButtonSize = noCount * 20 + 16;
+  const yesButtonSize = noCount * 10 + 32;
 
   const handleNoClick = () => {
     setNoCount(noCount + 1);
@@ -12,22 +14,22 @@ export default function Page() {
 
   const getNoButtonText = () => {
     const phrases = [
-      "No",
-      "Are you sure?",
-      "What if I asked really nicely?",
-      "Pretty please",
-      "With a chocolate rice cake on top",
-      "What about a matcha frostie",
-      "PLEASE POOKIE",
-      "But :*(",
-      "I am going to die",
-      "Yep im dead",
-      "ok ur talking to nathan's ghost",
-      "please babe",
-      ":((((",
-      "PRETTY PLEASE",
-      "Estoy muerto",
-      "No :(",
+      "قلت لا",
+      "اولردي معزوم",
+      "مو اليوم، باجر",
+      "افلاس ياخي",
+      "تعبان مالي بارض",
+      "خلها وقت ثاني",
+      "مرتبط مع الاهل",
+      "اي يوم ثاني مو مشكلة",
+      "راعي المطعم يطالبني",
+      "معليش عندي تسمم",
+      "كل يوم يتعشون؟",
+      "ودي مرة انت تعزمني",
+      "اذا شسمه بقولك",
+      "بنفت ما يشتغل",
+      "الدايت اليديد من غير عشى",
+      "يا رجل نهاية الشهر",
     ];
 
     return phrases[Math.min(noCount, phrases.length - 1)];
@@ -37,29 +39,27 @@ export default function Page() {
     <div className="-mt-16 flex h-screen flex-col items-center justify-center">
       {yesPressed ? (
         <>
-          <img src="https://media.tenor.com/gUiu1zyxfzYAAAAi/bear-kiss-bear-kisses.gif" />
-          <div className="my-4 text-4xl font-bold">WOOOOOO!!! I love you pookie!! ;))</div>
+          <img src={image2} />
+          <div className="my-4 text-4xl font-bold">كفوووو هذي العشم فيك</div>
         </>
       ) : (
         <>
-          <img
-            className="h-[200px]"
-            src="https://gifdb.com/images/high/cute-love-bear-roses-ou7zho5oosxnpo6k.gif"
-          />
-          <h1 className="my-4 text-4xl">Will you be my Valentine?</h1>
+          <img src={image1} />
+
+          <h1 className="my-4 text-4xl">تعزمني على العشى؟</h1>
           <div className="flex items-center">
             <button
-              className={`mr-4 rounded bg-green-500 px-4 py-2 font-bold text-white hover:bg-green-700`}
+              className={`mr-4 rounded bg-green-500 px-8 py-4 font-bold text-white hover:bg-green-700`}
               style={{ fontSize: yesButtonSize }}
               onClick={() => setYesPressed(true)}
             >
-              Yes
+              اوكي
             </button>
             <button
               onClick={handleNoClick}
-              className=" rounded bg-red-500 px-4 py-2 font-bold text-white hover:bg-red-700"
+              className=" rounded bg-red-500 px-16 py-8 font-bold text-white text-2xl hover:bg-red-700"
             >
-              {noCount === 0 ? "No" : getNoButtonText()}
+              {noCount === 0 ? "لا" : getNoButtonText()}
             </button>
           </div>
         </>
